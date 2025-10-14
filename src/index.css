@@ -1,1 +1,42 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #233e1e;
+  --color-bg-primary: #f1e1c7;
+  --color-accent-tan: #d4b483;
+  --color-text-primary: #513b1c;
+  --color-moss-green: #475534;
+  --color-light-moss-green: #acb284;
+  --color-light-grayish-orange: #f4f1ea;
+  --color-pale-orange: #fff8e5;
+  --color-navbar-green: #cbed8c;
+  --color-yellow-green-200: #d1e1b8;
+  --color-transparent-moss-600: #2f422a;
+  --color-transparent-moss-400: #2c4028;
+  --color-transparent-moss-200: #2c4028;
+  --color-green-stroke-line: #647439;
+
+  --color-dark-green: #f1e1c7;
+  --color-org-marquee: #8fbd61;
+
+  --color-dark-gray: #2e322d;
+
+  /* May or may not work, please just enter manually if that's the case */
+  --color-dark-wavyline: linear-gradient(
+    180deg,
+    rgba(54, 78, 49, 1) 0%,
+    rgba(29, 56, 23, 1) 100%
+  );
+
+  /* Some styles from the figma are not written here, it is because the values are the same. In other words they are duplicates. */
+
+  --text-display-1: clamp(24px, calc(28px + 4vw), 76px);
+  --text-heading-2: clamp(40px, calc(26px + 2vw), 68px);
+  --text-heading-3: clamp(24px, calc(9px + 1vw), 28px);
+  --text-heading-4: clamp(20px, calc(9px + 1vw), 24px);
+
+  --text-body-medium: clamp(16px, calc(9px + 1vw), 20px);
+  --text-button-small: clamp(12px, calc(10px + 0.5vw), 18px);
+  --text-body-small: clamp(14px, calc(9px + 1vw), 16px);
+  --text-label-xsmall: clamp(12px, calc(9px + 1vw), 14px);
+}
