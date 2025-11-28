@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Icon } from "@iconify/react";
 import { cn } from "@/lib/utils/utils";
 import NavAnimatedText from "@/components/features/navbar/nav-animated-text";
@@ -14,8 +15,30 @@ export default function DesktopNav({
    openDropdown,
    setOpenDropdown,
 }: DesktopNavProps) {
+   // 1. Create a Ref to track the navigation container
+   const navRef = useRef<HTMLElement>(null);
+
+   // 2. Handle "Click Outside" Logic
+   useEffect(() => {
+      function handleClickOutside(event: MouseEvent) {
+         if (navRef.current && !navRef.current.contains(event.target as Node)) {
+            setOpenDropdown(null);
+         }
+      }
+
+      // Bind the event listener
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+         // Unbind on cleanup
+         document.removeEventListener("mousedown", handleClickOutside);
+      };
+   }, [setOpenDropdown]);
+
    return (
-      <nav className="hidden md:block absolute left-1/2 -translate-x-1/2">
+      <nav
+         ref={navRef}
+         className="hidden md:block absolute left-1/2 -translate-x-1/2"
+      >
          <ul className="flex gap-10 items-center">
             {items.map((item) => {
                const isActive = openDropdown === item.label;
@@ -24,14 +47,15 @@ export default function DesktopNav({
                   <li
                      key={item.label}
                      className="relative h-full flex items-center"
-                     onMouseEnter={() => setOpenDropdown(item.label)}
-                     onMouseLeave={() => setOpenDropdown(null)}
                   >
                      {item.dropdown ? (
                         <>
                            <button
+                              onClick={() =>
+                                 setOpenDropdown(isActive ? null : item.label)
+                              }
                               className={cn(
-                                 "flex items-center gap-1 transition-colors outline-none",
+                                 "flex items-center gap-1 transition-colors outline-none cursor-pointer", // Added cursor-pointer
                                  isActive
                                     ? "text-gray-900"
                                     : "text-black hover:text-gray-900"
@@ -56,23 +80,24 @@ export default function DesktopNav({
                            <div
                               className={cn(
                                  "absolute top-full w-56 pt-4 transition-all duration-300 ease-out z-50",
-                                 // Positioning: Aligns sharp left edge under the chevron
                                  "left-[calc(100%-24px)]",
                                  isActive
                                     ? "opacity-100 translate-y-0 pointer-events-auto"
                                     : "opacity-0 -translate-y-2 pointer-events-none"
                               )}
                            >
-                              {/* The Bubble Shape */}
                               <div className="bg-[#F8F7F2] shadow-xl overflow-hidden p-2 rounded-[28px] rounded-tl-none border border-stone-100">
                                  <ul className="flex flex-col gap-1">
                                     {item.dropdown.map((subItem) => (
                                        <li key={subItem.label}>
                                           <a
                                              href={subItem.href}
+                                             // Close dropdown when a sub-item is clicked
+                                             onClick={() =>
+                                                setOpenDropdown(null)
+                                             }
                                              className="flex items-center gap-3 px-4 py-3 text-sm text-stone-600 hover:text-stone-900 hover:bg-white/50 rounded-2xl transition-all duration-200 group/item"
                                           >
-                                             {/* Icon Render */}
                                              {subItem.icon && (
                                                 <Icon
                                                    icon={subItem.icon}
@@ -92,6 +117,8 @@ export default function DesktopNav({
                      ) : (
                         <a
                            href={item.href}
+                           // Close dropdown if user clicks a sibling link (e.g. "Shop")
+                           onClick={() => setOpenDropdown(null)}
                            className="text-black hover:text-gray-900 outline-none"
                         >
                            <NavAnimatedText lineColor="bg-white">
