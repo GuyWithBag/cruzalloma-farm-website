@@ -9,4 +9,5 @@ export type NavbarDropdownItem = {
    label: string;
    href: string;
    icon?: string;
+   iconClassName?: string;
 };

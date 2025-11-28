@@ -76,14 +76,14 @@ export default function DesktopNav({
                            {/* Dropdown Menu */}
                            <div
                               className={cn(
-                                 "absolute top-full w-55 pt-4 transition-all duration-300 ease-out z-50",
+                                 "absolute top-full w-50 pt-4 transition-all duration-300 ease-out z-50",
                                  "left-[calc(100%-24px)]",
                                  isActive
                                     ? "opacity-100 translate-y-0 pointer-events-auto"
                                     : "opacity-0 -translate-y-2 pointer-events-none"
                               )}
                            >
-                              <div className="bg-[#F8F7F2] shadow-xl overflow-hidden rounded-[32px] rounded-tl-[8px] border-2 border-stone-300">
+                              <div className="bg-[#F8F7F2] shadow-xl overflow-hidden rounded-[40px] rounded-tl-[8px] border-2 border-stone-300">
                                  <ul className="flex flex-col">
                                     {item.dropdown.map(
                                        (subItem, index, arr) => (
@@ -111,7 +111,13 @@ export default function DesktopNav({
                                                 {subItem.icon && (
                                                    <Icon
                                                       icon={subItem.icon}
-                                                      className="w-5 h-5 text-stone-900 group-hover/item:text-stone-900 transition-colors"
+                                                      className={cn(
+                                                         // Default size (can be overridden by iconClassName)
+                                                         "w-5 h-5",
+                                                         "text-stone-900 group-hover/item:text-stone-900 transition-colors",
+                                                         // Apply custom class if it exists (e.g. w-[22px] h-[22px])
+                                                         subItem.iconClassName
+                                                      )}
                                                    />
                                                 )}
 
@@ -129,7 +135,7 @@ export default function DesktopNav({
 
                                              {/* Separator Line (Only renders between items) */}
                                              {index < arr.length - 1 && (
-                                                <div className="h-[1px] bg-stone-300 w-full self-center my-1" />
+                                                <div className="h-[1px] bg-stone-300 w-full self-center" />
                                              )}
                                           </li>
                                        )

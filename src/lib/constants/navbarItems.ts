@@ -31,8 +31,13 @@ export const NAV_ITEMS: NavbarItem[] = [
             href: "#partners",
             icon: "mdi:handshake-outline",
          },
-         { label: "Blog", href: "#blog", icon: "fluent:news-20-regular" },
-         { label: "Our Impact", href: "#impact", icon: "ph:plant" },
+         { label: "Blog", href: "#blog", icon: "mdi:blog" },
+         {
+            label: "Our Impact",
+            href: "#impact",
+            icon: "game-icons:farmer",
+            iconClassName: "w-[22px] h-[22px]",
+         },
       ],
    },
 ];
