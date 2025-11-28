@@ -47,7 +47,7 @@ export default function Navbar() {
                setOpenDropdown={setOpenDropdown}
             />
 
-            <div className="hidden md:block">
+            <div className="flex items-center gap-3 sm:gap-4  ml-auto">
                <Button asChild size="lg">
                   <a href="/join">Join Us</a>
                </Button>
@@ -55,12 +55,14 @@ export default function Navbar() {
 
             <button
                onClick={toggleMenu}
-               className="md:hidden p-2 text-black hover:text-gray-900 transition-colors outline-none"
+               className="min-[1024px]:hidden p-2 ml-3 sm:ml-5 text-black hover:text-gray-900 transition-colors outline-none"
                aria-label="Toggle menu"
             >
                <Icon
-                  icon={isMobileMenuOpen ? "mdi:close" : "mdi:menu"}
-                  className="h-6 w-6"
+                  icon={
+                     isMobileMenuOpen ? "mingcute:close-line" : "tabler:menu-2"
+                  }
+                  className="h-10 w-10 text-primary"
                />
             </button>
          </div>

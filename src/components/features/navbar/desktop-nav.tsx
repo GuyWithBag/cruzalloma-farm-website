@@ -34,9 +34,9 @@ export default function DesktopNav({
    return (
       <nav
          ref={navRef}
-         className="hidden md:block absolute left-1/2 -translate-x-1/2"
+         className="hidden min-[1024px]:block absolute left-1/2 -translate-x-1/2"
       >
-         <ul className="flex gap-10 items-center">
+         <ul className="flex gap-10 items-center whitespace-nowrap">
             {items.map((item) => {
                const isActive = openDropdown === item.label;
 
