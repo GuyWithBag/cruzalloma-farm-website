@@ -1,4 +1,10 @@
 export type NavbarItem = {
-  value: string;
-  href: string;
+   label: string;
+   href: string;
+   dropdown?: NavbarDropdownItem[];
+};
+
+export type NavbarDropdownItem = {
+   label: string;
+   href: string;
 };
