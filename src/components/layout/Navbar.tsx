@@ -38,7 +38,7 @@ export default function Navbar() {
 
    return (
       <header className="fixed inset-x-0 top-0 z-50 bg-olive-green-300 shadow-[0_4px_5px_0_rgba(0,0,0,0.5)]">
-         <div className="flex h-18 items-center justify-between px-5 md:px-18">
+         <div className="flex h-18 items-center justify-between pl-5 pr-3 sm:pl-7 sm:pr-5 md:px-19">
             <NavLogo />
 
             <DesktopNav
@@ -47,15 +47,15 @@ export default function Navbar() {
                setOpenDropdown={setOpenDropdown}
             />
 
-            <div className="flex items-center gap-3 sm:gap-4  ml-auto">
-               <Button asChild size="lg">
+            <div className="flex items-center gap-3 sm:gap-4 ml-auto">
+               <Button asChild size="lg" className="font-display">
                   <a href="/join">Join Us</a>
                </Button>
             </div>
 
             <button
                onClick={toggleMenu}
-               className="min-[1024px]:hidden p-2 ml-3 sm:ml-5 text-black hover:text-gray-900 transition-colors outline-none"
+               className="min-[1024px]:hidden p-2 ml-0.5 sm:ml-3 text-black hover:text-gray-900 transition-colors outline-none"
                aria-label="Toggle menu"
             >
                <Icon
