@@ -1,5 +1,4 @@
 import { Icon } from "@iconify/react";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils/utils";
 import type { NavbarItem } from "@/lib/types/navbarItem";
 
@@ -21,69 +20,111 @@ export default function MobileNav({
    return (
       <div
          className={cn(
-            "absolute inset-x-0 top-[72px] bg-white border-b border-neutral-200 shadow-lg md:hidden transition-all duration-300 origin-top",
-            isOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
+            // Position
+            "absolute top-[72px] right-5 z-40",
+            // Shape & Colors
+            "bg-[#9DC08B] border-[5px] border-[#FDFCF8] rounded-[24px] rounded-tr-none shadow-xl",
+            // Sizing (Smaller now)
+            "w-[230px] p-4",
+            // Animation: Fade In/Out Only (No scaling)
+            "transition-all duration-300 ease-in-out",
+            isOpen
+               ? "opacity-100 translate-y-0 visible"
+               : "opacity-0 -translate-y-2 invisible"
          )}
       >
-         <nav className="px-4 py-6 space-y-4">
-            {items.map((item) => {
-               const isActive = openDropdown === item.label;
+         <nav className="grid grid-cols-2 gap-y-4 gap-x-2">
+            {items.map((item, index) => {
+               const isFirst = index === 0;
+               const isDropdownActive = openDropdown === item.label;
 
                return (
-                  <div key={item.label}>
+                  <div
+                     key={item.label}
+                     className={cn(
+                        "relative flex flex-col items-center justify-center text-center",
+                        isFirst ? "col-span-2" : "col-span-1"
+                     )}
+                  >
                      {item.dropdown ? (
                         <>
                            <button
                               onClick={() => toggleDropdown(item.label)}
-                              className="flex items-center justify-between w-full text-lg text-black hover:text-gray-900 transition-colors py-2"
+                              className="flex flex-col items-center gap-1.5 group outline-none"
                            >
-                              {item.label}
-                              <Icon
-                                 icon="mynaui:chevron-up-solid"
-                                 className={cn(
-                                    "w-5 h-5 transition-transform",
-                                    isActive ? "rotate-180" : "rotate-0"
-                                 )}
-                              />
+                              {/* Circle Icon Container (Smaller: 48px) */}
+                              <div className="w-12 h-12 rounded-full bg-[#1A3C1A] flex items-center justify-center text-[#9DC08B] group-hover:bg-[#2F522F] transition-colors shadow-sm">
+                                 <Icon
+                                    icon={item.icon || "mdi:circle"}
+                                    className="w-6 h-6 text-[#FDFCF8]"
+                                 />
+                              </div>
+                              {/* Label (Smaller Text) */}
+                              <span className="flex items-center gap-1 text-xs font-bold text-[#1A3C1A]">
+                                 {item.label}
+                                 <Icon
+                                    icon="mynaui:chevron-up-solid"
+                                    className={cn(
+                                       "w-3 h-3 transition-transform",
+                                       isDropdownActive
+                                          ? "rotate-180"
+                                          : "rotate-0"
+                                    )}
+                                 />
+                              </span>
                            </button>
+
+                           {/* Dropdown Mini Popover */}
                            <div
                               className={cn(
-                                 "overflow-hidden transition-all duration-300",
-                                 isActive ? "max-h-96" : "max-h-0"
+                                 "absolute top-full mt-1 w-40 bg-[#F8F7F2] rounded-lg shadow-lg border border-stone-200 overflow-hidden transition-all duration-200 z-50",
+                                 "left-1/2 -translate-x-1/2",
+                                 isDropdownActive
+                                    ? "opacity-100 translate-y-0 visible"
+                                    : "opacity-0 -translate-y-2 invisible"
                               )}
                            >
-                              <div className="pl-4 pb-2 space-y-2 border-l-2 border-neutral-100 ml-2">
+                              <ul className="py-1">
                                  {item.dropdown.map((subItem) => (
-                                    <a
-                                       key={subItem.label}
-                                       href={subItem.href}
-                                       className="block text-black hover:text-gray-900 transition-colors py-1"
-                                       onClick={closeMenu}
-                                    >
-                                       {subItem.label}
-                                    </a>
+                                    <li key={subItem.label}>
+                                       <a
+                                          href={subItem.href}
+                                          onClick={closeMenu}
+                                          className="flex items-center gap-2 px-3 py-2 text-xs text-stone-700 hover:bg-stone-100 hover:text-black"
+                                       >
+                                          {subItem.icon && (
+                                             <Icon
+                                                icon={subItem.icon}
+                                                className="w-3.5 h-3.5 opacity-70"
+                                             />
+                                          )}
+                                          {subItem.label}
+                                       </a>
+                                    </li>
                                  ))}
-                              </div>
+                              </ul>
                            </div>
                         </>
                      ) : (
                         <a
                            href={item.href}
-                           className="block text-lg text-black hover:text-gray-900 transition-colors py-2"
                            onClick={closeMenu}
+                           className="flex flex-col items-center gap-1.5 group outline-none"
                         >
-                           {item.label}
+                           <div className="w-12 h-12 rounded-full bg-[#1A3C1A] flex items-center justify-center group-hover:bg-[#2F522F] transition-colors shadow-sm">
+                              <Icon
+                                 icon={item.icon || "mdi:circle"}
+                                 className="w-6 h-6 text-[#FDFCF8]"
+                              />
+                           </div>
+                           <span className="text-xs font-bold text-[#1A3C1A]">
+                              {item.label}
+                           </span>
                         </a>
                      )}
                   </div>
                );
             })}
-
-            <div className="pt-4">
-               <Button className="w-full" asChild>
-                  <a href="/join">Join Us</a>
-               </Button>
-            </div>
          </nav>
       </div>
    );

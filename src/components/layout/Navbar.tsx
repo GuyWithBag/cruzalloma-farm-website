@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import { Button } from "@/components/ui/button";
 import { NAV_ITEMS } from "@/lib/constants/navbarItems";
@@ -19,29 +19,43 @@ export default function Navbar() {
       setOpenDropdown((prev) => (prev === label ? null : label));
    }, []);
 
+   // --- NEW: Auto-close on resize ---
+   useEffect(() => {
+      const handleResize = () => {
+         // 768px matches Tailwind's 'md' breakpoint
+         if (window.innerWidth >= 768) {
+            setIsMobileMenuOpen(false);
+            setOpenDropdown(null); // Optional: also close any open sub-menus
+         }
+      };
+
+      window.addEventListener("resize", handleResize);
+
+      // Cleanup listener on unmount
+      return () => window.removeEventListener("resize", handleResize);
+   }, []);
+   // --------------------------------
+
    return (
       <header className="fixed inset-x-0 top-0 z-50 bg-olive-green-300 shadow-[0_4px_5px_0_rgba(0,0,0,0.5)]">
          <div className="flex h-18 items-center justify-between px-5 md:px-18">
             <NavLogo />
 
-            {/* Desktop View */}
             <DesktopNav
                items={NAV_ITEMS}
                openDropdown={openDropdown}
                setOpenDropdown={setOpenDropdown}
             />
 
-            {/* CTA Button */}
             <div className="hidden md:block">
                <Button asChild size="lg">
                   <a href="/join">Join Us</a>
                </Button>
             </div>
 
-            {/* Mobile Toggle Button */}
             <button
                onClick={toggleMenu}
-               className="md:hidden p-2 text-black hover:text-gray-900 transition-colors"
+               className="md:hidden p-2 text-black hover:text-gray-900 transition-colors outline-none"
                aria-label="Toggle menu"
             >
                <Icon
@@ -51,7 +65,6 @@ export default function Navbar() {
             </button>
          </div>
 
-         {/* Mobile View */}
          <MobileNav
             items={NAV_ITEMS}
             isOpen={isMobileMenuOpen}
