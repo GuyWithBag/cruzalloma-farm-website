@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { cn } from "@/lib/utils/utils";
 import type { NavbarItem } from "@/lib/types/navbarItem";
@@ -87,8 +88,8 @@ export default function MobileNav({
                               <ul className="py-1">
                                  {item.dropdown.map((subItem) => (
                                     <li key={subItem.label}>
-                                       <a
-                                          href={subItem.href}
+                                       <Link
+                                          to={subItem.href}
                                           onClick={closeMenu}
                                           className="flex items-center gap-2 px-3 py-2 text-xs text-stone-700 hover:bg-stone-100 hover:text-black"
                                        >
@@ -99,15 +100,15 @@ export default function MobileNav({
                                              />
                                           )}
                                           {subItem.label}
-                                       </a>
+                                       </Link>
                                     </li>
                                  ))}
                               </ul>
                            </div>
                         </>
                      ) : (
-                        <a
-                           href={item.href}
+                        <Link
+                           to={item.href}
                            onClick={closeMenu}
                            className="flex flex-col items-center gap-1.5 group outline-none"
                         >
@@ -120,7 +121,7 @@ export default function MobileNav({
                            <span className="text-xs font-bold text-[#1A3C1A]">
                               {item.label}
                            </span>
-                        </a>
+                        </Link>
                      )}
                   </div>
                );

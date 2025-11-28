@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { cn } from "@/lib/utils/utils";
 import NavAnimatedText from "@/components/features/navbar/nav-animated-text";
@@ -91,13 +92,11 @@ export default function DesktopNav({
                                              key={subItem.label}
                                              className="flex flex-col"
                                           >
-                                             <a
-                                                href={subItem.href}
-                                                // Close dropdown when a sub-item is clicked
+                                             <Link
+                                                to={subItem.href}
                                                 onClick={() =>
                                                    setOpenDropdown(null)
                                                 }
-                                                // Track hover state for container-triggered animation
                                                 onMouseEnter={() =>
                                                    setHoveredSubItem(
                                                       subItem.label
@@ -112,16 +111,13 @@ export default function DesktopNav({
                                                    <Icon
                                                       icon={subItem.icon}
                                                       className={cn(
-                                                         // Default size (can be overridden by iconClassName)
                                                          "w-5 h-5",
                                                          "text-stone-900 group-hover/item:text-stone-900 transition-colors",
-                                                         // Apply custom class if it exists (e.g. w-[22px] h-[22px])
                                                          subItem.iconClassName
                                                       )}
                                                    />
                                                 )}
 
-                                                {/* Integrated Animated Text (Triggered by container hover) */}
                                                 <NavAnimatedText
                                                    lineColor="bg-stone-900"
                                                    isActive={
@@ -131,9 +127,8 @@ export default function DesktopNav({
                                                 >
                                                    {subItem.label}
                                                 </NavAnimatedText>
-                                             </a>
+                                             </Link>
 
-                                             {/* Separator Line (Only renders between items) */}
                                              {index < arr.length - 1 && (
                                                 <div className="h-[1px] bg-stone-300 w-full self-center" />
                                              )}
@@ -145,15 +140,15 @@ export default function DesktopNav({
                            </div>
                         </>
                      ) : (
-                        <a
-                           href={item.href}
+                        <Link
+                           to={item.href}
                            onClick={() => setOpenDropdown(null)}
                            className="text-black hover:text-gray-900 outline-none"
                         >
                            <NavAnimatedText lineColor="bg-white">
                               {item.label}
                            </NavAnimatedText>
-                        </a>
+                        </Link>
                      )}
                   </li>
                );

@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { Button } from "@/components/ui/button";
 import { NAV_ITEMS } from "@/lib/constants/navbarItems";
@@ -49,7 +50,7 @@ export default function Navbar() {
 
             <div className="flex items-center gap-3 sm:gap-4 ml-auto">
                <Button asChild size="lg" className="font-display">
-                  <a href="/join">Join Us</a>
+                  <Link to={"/join"}>Join Us</Link>
                </Button>
             </div>
 
