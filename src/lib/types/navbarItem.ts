@@ -7,4 +7,5 @@ export type NavbarItem = {
 export type NavbarDropdownItem = {
    label: string;
    href: string;
+   icon?: string;
 };

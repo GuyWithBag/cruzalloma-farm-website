@@ -9,9 +9,21 @@ export const NAV_ITEMS: NavbarItem[] = [
       label: "Explore More",
       href: "#explore",
       dropdown: [
-         { label: "Our Partners", href: "#partners" },
-         { label: "Blog", href: "#blog" },
-         { label: "Our Impact", href: "#impact" },
+         {
+            label: "Our Partners",
+            href: "#partners",
+            icon: "mdi:handshake-outline",
+         },
+         {
+            label: "Blog",
+            href: "#blog",
+            icon: "fluent:news-20-regular",
+         },
+         {
+            label: "Our Impact",
+            href: "#impact",
+            icon: "ph:plant",
+         },
       ],
    },
 ];
