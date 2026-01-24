@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 export default function RootLayout() {
    return (
@@ -8,6 +9,7 @@ export default function RootLayout() {
          <main className="flex-grow">
             <Outlet /> {/* Renders child route pages here */}
          </main>
+         <Footer />
       </div>
    );
 }

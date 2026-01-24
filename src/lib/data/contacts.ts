@@ -3,12 +3,12 @@ import type { Contact } from "../types/contact";
 export const contacts: { [key: string]: Contact } = {
    email: {
       type: "Email",
-      value: "hi@example.com",
-      href: "mailto:hi@example.com",
+      value: "cruzalloma@gmail.com",
+      href: "mailto:cruzalloma@gmail.com",
    },
    phoneNumber: {
       type: "Phone",
-      value: "+1234567890",
-      href: "tel:+1234567890",
+      value: "+63 927 824 6320",
+      href: "tel:+639278246320",
    },
 };
