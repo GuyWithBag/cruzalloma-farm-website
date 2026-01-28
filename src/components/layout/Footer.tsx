@@ -1,4 +1,5 @@
 import logo from "@/assets/images/logo/cruzalloma-logo.png";
+import backgroundImage from "@/assets/images/footer-card-bg.png";
 import { contacts } from "@/lib/data/contacts";
 import { socials } from "@/lib/data/socials";
 import { Link } from "react-router-dom";
@@ -34,10 +35,14 @@ export default function Footer() {
   const instagramHref = socials.instagram.href || "https://www.instagram.com/";
 
   return (
-    <footer className="bg-navbar-green pt-16 pb-10">
-      <div className="mx-auto w-full max-w-6xl px-5 md:px-19">
-        <div className="border-[3px] border-green-stroke-line bg-yellow-green-200 px-6 py-10 md:px-12 md:py-14">
-          <div className="grid gap-10 md:grid-cols-[1.35fr_1fr_1fr]">
+    <footer className="bg-olive-green-300 pt-16 pb-10">
+      <div className="mx-auto w-full px-5 md:px-19">
+        <div
+          className="bg-cover bg-center p-[4px]"
+          style={{ backgroundImage: `url(${backgroundImage})` }}
+        >
+          <div className="bg-yellow-green-200 px-6 py-10 md:px-12 md:py-14">
+            <div className="grid gap-10 md:grid-cols-[4fr_1fr_1fr]">
             <div className="flex items-start gap-4">
               <img
                 src={logo}
@@ -52,11 +57,7 @@ export default function Footer() {
                     Address
                   </p>
                   <address className="not-italic text-sm leading-5 text-primary">
-                    Kiwalan, Sta. Filomena, Iligan City,
-                    <br />
-                    Lanao del Norte, Philippines, Iligan
-                    <br />
-                    City, Philippines
+                    Kiwalan, Sta. Filomena, Iligan City, Lanao del Norte, Philippines
                   </address>
                 </div>
 
@@ -132,6 +133,7 @@ export default function Footer() {
                 ))}
               </ul>
             </nav>
+            </div>
           </div>
         </div>
 
