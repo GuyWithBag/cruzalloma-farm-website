@@ -1,3 +1,9 @@
+import BenefitsSection from "@/components/sections/BenefitsSection";
+
 export default function HomePage() {
-   return <main></main>;
+   return (
+      <main>
+         <BenefitsSection />
+      </main>
+   );
 }
