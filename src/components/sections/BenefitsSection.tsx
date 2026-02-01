@@ -67,7 +67,7 @@ export default function BenefitsSection() {
                >
                   <button
                      type="button"
-                     className="border border-white px-[16px] py-[8px] text-[10px] font-semibold leading-[1.5] font-sans md:px-[24px] md:py-[12px] md:text-[16px] md:font-normal"
+                     className="border border-white px-[16px] py-[8px] text-[10px] font-semibold leading-[1.5] font-sans transition-colors duration-500 hover:bg-white/30 md:px-[24px] md:py-[12px] md:text-[16px] md:font-normal"
                      data-name="LeftButton"
                      data-node-id="1101:9407"
                   >
@@ -75,7 +75,7 @@ export default function BenefitsSection() {
                   </button>
                   <button
                      type="button"
-                     className="flex items-center gap-[5.424px] text-[10px] font-semibold leading-[1.5] underline font-sans md:gap-[8px] md:text-[16px] md:font-normal md:no-underline"
+                     className="flex items-center gap-[5.424px] text-[10px] font-semibold leading-[1.5] underline font-sans transition-opacity duration-300 hover:opacity-75 md:gap-[8px] md:text-[16px] md:font-normal md:no-underline"
                      data-name="RightLink"
                      data-node-id="1101:9453"
                   >
@@ -101,7 +101,7 @@ export default function BenefitsSection() {
                   data-node-id="837:10232"
                >
                   <article
-                     className="flex flex-col items-start gap-[9.805px] md:gap-[24px] md:p-[15px]"
+                     className="flex flex-col items-start gap-[9.805px] md:gap-[24px] md:border md:border-transparent md:p-[15px] md:transition-colors md:duration-700 md:hover:border-white"
                      data-name="Benefit Item / Farmer Income"
                      data-node-id="1101:9275"
                   >
@@ -120,7 +120,7 @@ export default function BenefitsSection() {
                   </article>
 
                   <article
-                     className="flex flex-col items-start gap-[9.805px] md:gap-[24px] md:p-[15px]"
+                     className="flex flex-col items-start gap-[9.805px] md:gap-[24px] md:border md:border-transparent md:p-[15px] md:transition-colors md:duration-700 md:hover:border-white"
                      data-name="Benefit Item / Local Produce"
                      data-node-id="1101:9359"
                   >
@@ -146,7 +146,7 @@ export default function BenefitsSection() {
                   data-node-id="837:10241"
                >
                   <article
-                     className="flex flex-col items-start gap-[9.805px] md:gap-[24px] md:p-[15px]"
+                     className="flex flex-col items-start gap-[9.805px] md:gap-[24px] md:border md:border-transparent md:p-[15px] md:transition-colors md:duration-700 md:hover:border-white"
                      data-name="Benefit Item / Youth Education"
                      data-node-id="1101:9365"
                   >
@@ -165,7 +165,7 @@ export default function BenefitsSection() {
                   </article>
 
                   <article
-                     className="flex flex-col items-start gap-[9.805px] md:gap-[24px] md:p-[15px]"
+                     className="flex flex-col items-start gap-[9.805px] md:gap-[24px] md:border md:border-transparent md:p-[15px] md:transition-colors md:duration-700 md:hover:border-white"
                      data-name="Benefit Item / Partnerships"
                      data-node-id="1101:9371"
                   >
