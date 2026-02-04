@@ -164,6 +164,8 @@ function ResponsiveScaleBox({
 export default function FeaturesSection() {
 	const collageInnerRef = useRef<HTMLDivElement | null>(null);
 	const collageRafRef = useRef<number | null>(null);
+	const [collageActiveCard, setCollageActiveCard] = useState<string | null>(null);
+	const collageActiveCardRef = useRef<string | null>(null);
 
 	function handleCollageMouseMove(e: React.MouseEvent<HTMLDivElement>) {
 		if (
@@ -191,12 +193,37 @@ export default function FeaturesSection() {
 		collageRafRef.current = window.requestAnimationFrame(() => {
 			inner.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 		});
+
+		// The collage is absolutely positioned and can overlap the cards.
+		// When the cursor is over the collage, the cards won't receive :hover.
+		// Proxy that hover by detecting which card is underneath the cursor.
+		if (typeof document !== "undefined") {
+			const overlay = e.currentTarget as HTMLDivElement;
+			const prevPointerEvents = overlay.style.pointerEvents;
+			overlay.style.pointerEvents = "none";
+			const underneath = document.elementFromPoint(
+				e.clientX,
+				e.clientY
+			) as HTMLElement | null;
+			overlay.style.pointerEvents = prevPointerEvents;
+
+			const cardEl = underneath?.closest?.(
+				"[data-feature-card]"
+			) as HTMLElement | null;
+			const next = cardEl?.getAttribute("data-feature-card") ?? null;
+			if (collageActiveCardRef.current !== next) {
+				collageActiveCardRef.current = next;
+				setCollageActiveCard(next);
+			}
+		}
 	}
 
 	function handleCollageMouseLeave() {
 		const inner = collageInnerRef.current;
 		if (!inner) return;
 		inner.style.transform = "translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg)";
+		collageActiveCardRef.current = null;
+		setCollageActiveCard(null);
 	}
 
 	return (
@@ -240,8 +267,16 @@ export default function FeaturesSection() {
 						<div className="relative flex items-start gap-[250px] py-12">
 							{/* Left column */}
 							<div className="flex flex-col gap-[196px] pt-[80px]">
-								<article className="relative w-[548px] h-[352px] rounded-xl bg-pale-orange/80 px-8 pb-8 pt-7 text-text-primary shadow-sm transition-shadow hover:shadow-md">
-									<div className="flex w-[326px] flex-col gap-[17px]">
+                                {/* Agriculture */}
+								<article
+									data-feature-card="agriculture"
+									className={cn(
+										"relative isolate h-[352px] w-[548px] overflow-hidden rounded-xl bg-transparent px-8 pb-8 pt-7 text-text-primary shadow-sm transition-shadow transition-transform duration-300 ease-in-out hover:shadow-md hover:-translate-y-[-2px] transform-gpu will-change-transform before:content-[''] before:pointer-events-none before:absolute before:inset-0 before:rounded-xl before:bg-pale-orange/80 before:opacity-100 before:transition-opacity before:duration-300 before:ease-in-out hover:before:opacity-0 after:content-[''] after:pointer-events-none after:absolute after:inset-0 after:rounded-xl after:bg-[#FFEBCC]/80 after:opacity-0 after:transition-opacity after:duration-300 after:ease-in-out hover:after:opacity-100",
+										collageActiveCard === "agriculture" &&
+											"shadow-md -translate-y-[-2px] before:opacity-0 after:opacity-100"
+									)}
+								>
+									<div className="relative z-10 flex w-[326px] flex-col gap-[17px]">
 										<Icon
 											icon="bi:leaf"
 											className="h-[47px] w-[47px] text-text-primary transform-gpu scale-x-[-1]"
@@ -263,8 +298,16 @@ export default function FeaturesSection() {
 									</div>
 								</article>
 
-								<article className="relative w-[548px] h-[318px] rounded-xl bg-pale-orange/80 p-8 text-text-primary shadow-sm transition-shadow hover:shadow-md">
-									<div className="flex w-[304px] flex-col gap-[14px]">
+                                {/* Tourism */}
+								<article
+									data-feature-card="tourism"
+									className={cn(
+										"relative isolate h-[318px] w-[548px] overflow-hidden rounded-xl bg-transparent p-8 text-text-primary shadow-sm transition-shadow transition-transform duration-300 ease-in-out hover:shadow-md hover:-translate-y-[-2px] transform-gpu will-change-transform before:content-[''] before:pointer-events-none before:absolute before:inset-0 before:rounded-xl before:bg-pale-orange/80 before:opacity-100 before:transition-opacity before:duration-300 before:ease-in-out hover:before:opacity-0 after:content-[''] after:pointer-events-none after:absolute after:inset-0 after:rounded-xl after:bg-[#FFEBCC]/80 after:opacity-0 after:transition-opacity after:duration-300 after:ease-in-out hover:after:opacity-100",
+										collageActiveCard === "tourism" &&
+											"shadow-md -translate-y-[-2px] before:opacity-0 after:opacity-100"
+									)}
+								>
+									<div className="relative z-10 flex w-[304px] flex-col gap-[14px]">
 										<Icon
 											icon="gis:poi-map-o"
 											className="h-[48px] w-[48px] text-text-primary"
@@ -289,8 +332,16 @@ export default function FeaturesSection() {
 
 							{/* Right column */}
 							<div className="flex flex-col gap-[200px] w-[512px] h-[974px] pt-[32px]">
-								<article className="relative w-[512px] h-[424px] rounded-xl bg-pale-orange/80 p-8 text-text-primary shadow-sm transition-shadow hover:shadow-md">
-									<div className="ml-auto flex flex-col items-end gap-2">
+                                {/* Communities */}
+								<article
+									data-feature-card="communities"
+									className={cn(
+										"relative isolate h-[424px] w-[512px] overflow-hidden rounded-xl bg-transparent p-8 text-text-primary shadow-sm transition-shadow transition-transform duration-300 ease-in-out hover:shadow-md hover:-translate-y-[-2px] transform-gpu will-change-transform before:content-[''] before:pointer-events-none before:absolute before:inset-0 before:rounded-xl before:bg-pale-orange/80 before:opacity-100 before:transition-opacity before:duration-300 before:ease-in-out hover:before:opacity-0 after:content-[''] after:pointer-events-none after:absolute after:inset-0 after:rounded-xl after:bg-[#FFEBCC]/80 after:opacity-0 after:transition-opacity after:duration-300 after:ease-in-out hover:after:opacity-100",
+										collageActiveCard === "communities" &&
+											"shadow-md -translate-y-[-2px] before:opacity-0 after:opacity-100"
+									)}
+								>
+									<div className="relative z-10 ml-auto flex flex-col items-end gap-2">
                                         <div className="flex w-[293px] flex-col gap-2">
                                             <div className="flex h-[60px] w-[60px] items-center justify-center rounded-3xl">
                                                 <Icon
@@ -314,8 +365,16 @@ export default function FeaturesSection() {
                                     </div>
 								</article>
 
-								<article className="relative w-[512px] rounded-xl bg-pale-orange/80 pb-8 pl-[70px] pr-8 pt-[5px] text-text-primary shadow-sm transition-shadow hover:shadow-md">
-									<div className="flex w-[256px] flex-col gap-2 pt-[17px]">
+                                {/* Supporter Program */}
+								<article
+									data-feature-card="supporter"
+									className={cn(
+										"relative isolate w-[512px] overflow-hidden rounded-xl bg-transparent pb-8 pl-[70px] pr-8 pt-[5px] text-text-primary shadow-sm transition-shadow transition-transform duration-300 ease-in-out hover:shadow-md hover:-translate-y-[-2px] transform-gpu will-change-transform before:content-[''] before:pointer-events-none before:absolute before:inset-0 before:rounded-xl before:bg-pale-orange/80 before:opacity-100 before:transition-opacity before:duration-300 before:ease-in-out hover:before:opacity-0 after:content-[''] after:pointer-events-none after:absolute after:inset-0 after:rounded-xl after:bg-[#FFEBCC]/80 after:opacity-0 after:transition-opacity after:duration-300 after:ease-in-out hover:after:opacity-100",
+										collageActiveCard === "supporter" &&
+											"shadow-md -translate-y-[-2px] before:opacity-0 after:opacity-100"
+									)}
+								>
+									<div className="relative z-10 flex w-[256px] flex-col gap-2 pt-[17px]">
 										<Icon
 											icon="mdi:hand-heart"
 											className="h-[48px] w-[48px] text-text-primary"
@@ -334,12 +393,12 @@ export default function FeaturesSection() {
 											label="Support Our Mission"
 										/>
 									</div>
-
-									<div className="pointer-events-none absolute left-[calc(50%+144px)] top-[calc(50%+24px)] -translate-x-1/2 -translate-y-1/2" aria-hidden="true">
+                                    <div className="absolute left-[350px] top-[120px] z-10">
 										<CircleImage
 											src={greenHeart}
 											alt="Green heart icon"
 											size={120}
+											className="transform-gpu will-change-transform transition-transform duration-[1000ms] ease-[cubic-bezier(.22,1.6,.36,1)] hover:scale-[1.12] hover:-translate-y-[6px] motion-reduce:transition-none"
 											noBorder
 										/>
 									</div>
@@ -358,7 +417,7 @@ export default function FeaturesSection() {
 									ref={collageInnerRef}
 									className="relative h-full w-full transition-transform duration-200 ease-out will-change-transform"
 								>
-									<div className="absolute left-[5px] top-[28px] z-40 ">
+									<div className="absolute left-[5px] top-[28px] z-50 ">
 										<CircleImage
 											src={twoPplPic}
 											alt="Two people working together on the farm"
@@ -366,7 +425,7 @@ export default function FeaturesSection() {
 											className="transform-gpu will-change-transform transition-transform duration-[1000ms] ease-[cubic-bezier(.22,1.6,.36,1)] hover:scale-[1.12] hover:-translate-y-[6px] motion-reduce:transition-none"
 										/>
 									</div>
-									<div className="absolute left-[157px] top-[238px] z-30">
+									<div className="absolute left-[157px] top-[238px] z-40">
 										<CircleImage
 											src={girlGroupPower}
 											alt="Group of women at Cruzalloma Farm"
@@ -374,7 +433,7 @@ export default function FeaturesSection() {
 											className="transform-gpu will-change-transform transition-transform duration-[1000ms] ease-[cubic-bezier(.22,1.6,.36,1)] hover:scale-[1.12] hover:-translate-y-[6px] motion-reduce:transition-none"
 										/>
 									</div>
-									<div className="absolute left-[315px] top-0 z-20">
+									<div className="absolute left-[315px] top-0 z-30">
 										<CircleImage
 											src={digDigDig}
 											alt="Farmers working in the field"
@@ -382,7 +441,7 @@ export default function FeaturesSection() {
 											className="transform-gpu will-change-transform transition-transform duration-[1000ms] ease-[cubic-bezier(.22,1.6,.36,1)] hover:scale-[1.12] hover:-translate-y-[6px] motion-reduce:transition-none"
 										/>
 									</div>
-									<div className="absolute left-0 top-[546px] z-10">
+									<div className="absolute left-0 top-[546px] z-20">
 										<CircleImage
 											src={groupPhoto}
 											alt="Community group photo at Cruzalloma Farm"
