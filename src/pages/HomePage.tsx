@@ -1,3 +1,9 @@
+import HowItWorksSection from "@/components/sections/HowItWorksSection";
+
 export default function HomePage() {
-   return <main></main>;
+   return (
+      <main>
+         <HowItWorksSection />
+      </main>
+   );
 }
