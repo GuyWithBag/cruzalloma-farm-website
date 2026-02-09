@@ -5,13 +5,13 @@ import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import CTASection from "@/components/sections/CTASection";
 
 export default function HomePage() {
-   return (
-      <main>
-         <HeroSection />
-         <FeaturesSection />
-         <BenefitsSection />
-         <HowItWorksSection />
-         <CTASection />
-      </main>
-   );
+  return (
+    <main>
+      <HeroSection />
+      <FeaturesSection />
+      <BenefitsSection />
+      <HowItWorksSection />
+      <CTASection />
+    </main>
+  );
 }
