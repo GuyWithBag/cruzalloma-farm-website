@@ -20,7 +20,7 @@ const HeroHeader = () => {
         className="
           text-[0.5rem] font-display font-bold 
           px-2.5 py-1.5 sm:px-4 md:px-5 sm:py-3 
-          cursor-pointer
+          cursor-pointer leading-none
           hover:brightness-105
         "
       >
