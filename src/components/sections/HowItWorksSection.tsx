@@ -1,4 +1,5 @@
 import { Icon } from "@iconify/react";
+import SectionHeader from "../dev-ui/SectionHeader";
 
 // Import SVG assets
 import WavyLine from "@/assets/svgs/HowItWorksSection/Rectangle 76.svg";
@@ -38,20 +39,13 @@ export default function HowItWorksSection() {
       {/* Content Container*/}
       <div className="relative flex flex-col items-center gap-6 md:gap-[42px] pt-[18px] md:pt-[80px] pb-[28px] md:pb-[128px]">
         {/* Header */}
-        <div className="relative flex flex-col items-center justify-center gap-[2px] md:gap-[1vw] w-full max-w-[100%] h-auto bg-light-moss-green/80 border-t border-b border-green-stroke-line md:border-t-[5px] md:border-b-[5px] text-center text-text-primary">
-          {/* Overline */}
-          <p className="font-sans md:font-display font-semibold leading-[1.5] underline" style={{ fontSize: 'clamp(6px,1.2vw,21px)' }}>
-            Our Process
-          </p>
-          {/* Main Heading */}
-          <h2 className="font-sans md:font-display font-bold leading-normal md:leading-[1.3]" style={{ fontSize: 'clamp(16px,4vw,68px)' }}>
-            How We Cultivate Knowledge
-          </h2>
-          {/* Subheading */}
-          <p className="font-sans font-normal leading-normal md:leading-[1.5]" style={{ fontSize: 'clamp(6.5px,1.6vw,24px)' }}>
-            A transparent look at our farm-to-community approach, from planting
-            to harvesting.
-          </p>
+        <div className="relative flex flex-col items-center justify-center gap-[2px] md:gap-[1vw] w-full max-w-[100%] md:h-[180px] h-[55px] bg-light-moss-green/80 border-t border-b border-green-stroke-line md:border-t-[5px] md:border-b-[5px] text-center text-text-primary">
+          <SectionHeader
+            eyebrow="Our Process"
+            heading="How We Cultivate Knowledge"
+            subHeading="A transparent look at our farm-to-community approach, from planting to harvesting."
+            className="text-center"
+          />
         </div>
 
         {/* Content Section */}
