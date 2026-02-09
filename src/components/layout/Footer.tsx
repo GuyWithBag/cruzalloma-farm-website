@@ -1,5 +1,5 @@
 import backgroundImage from "@/assets/images/footer-card-bg.png";
-import { logos } from "@/lib/data/logos";
+import logo from "@/assets/logos/cruzalloma.png";
 import { contacts } from "@/lib/data/contacts";
 import { socials } from "@/lib/data/socials";
 import { Link } from "react-router-dom";
@@ -45,8 +45,8 @@ export default function Footer() {
             <div className="grid gap-10 md:grid-cols-[4fr_1fr_1fr]">
             <div className="flex items-start gap-4">
               <img
-                src={logos.cruzalloma.icon}
-                alt={logos.cruzalloma.alt}
+                src={logo}
+                alt="Cruzalloma logo"
                 className="h-12 w-12 shrink-0 md:h-14 md:w-14"
                 loading="lazy"
               />
