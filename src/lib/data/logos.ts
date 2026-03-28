@@ -1,63 +1,49 @@
 import type { Logo } from "../types/logo";
 
-import cocoaPhilLogo from "@/assets/Marquee-logos/CocoaPhil.png";
-import dtiLogo from "@/assets/Marquee-logos/DTI.png";
-import cidamiLogo from "@/assets/Marquee-logos/CIDAMI.png";
-import daLogo from "@/assets/Marquee-logos/DA.png";
-import negosyoLogo from "@/assets/Marquee-logos/Go Negosyo.png";
+import cruzallomaLogo from "@/assets/images/logos/cruzalloma-logo.png";
+import cocoaPhilLogo from "@/assets/Marquee-logos/cocoa-phil.png";
+import dtiLogo from "@/assets/Marquee-logos/dti.png";
+import cidamiLogo from "@/assets/Marquee-logos/cidami.png";
+import daLogo from "@/assets/Marquee-logos/da.png";
+import negosyoLogo from "@/assets/Marquee-logos/go-negosyo.png";
 
 export const logos: { [key: string]: Logo } = {
-    cocoaPhil: {
-        icon: cocoaPhilLogo,
-        href: undefined,
-        alt: 'CocoaPhil logo',
-    },
-    dti: {
-        icon: dtiLogo,
-        href: undefined,
-        alt: 'DTI logo',
-    },
-    cidami: {
-        icon: cidamiLogo,
-        href: undefined,
-        alt: 'CIDAMI logo',
-    },
-    da: {
-        icon: daLogo,
-        href: undefined,
-        alt: 'DA logo',
-    },
-    negosyo: {
-        icon: negosyoLogo,
-        href: undefined,
-        alt: 'Go Negosyo logo',
-    },
+  cruzalloma: {
+    icon: cruzallomaLogo,
+    href: undefined,
+    alt: "Cruzalloma Farm logo",
+  },
+  cocoaPhil: {
+    icon: cocoaPhilLogo,
+    href: undefined,
+    alt: "CocoaPhil logo",
+  },
+  dti: {
+    icon: dtiLogo,
+    href: undefined,
+    alt: "DTI logo",
+  },
+  cidami: {
+    icon: cidamiLogo,
+    href: undefined,
+    alt: "CIDAMI logo",
+  },
+  da: {
+    icon: daLogo,
+    href: undefined,
+    alt: "DA logo",
+  },
+  negosyo: {
+    icon: negosyoLogo,
+    href: undefined,
+    alt: "Go Negosyo logo",
+  },
 };
 
 export const partnerLogos: Logo[] = [
-    {
-        icon: cocoaPhilLogo,
-        href: undefined,
-        alt: 'Cocoa Phil logo',
-    },
-    {
-        icon: dtiLogo,
-        href: undefined,
-        alt: 'DTI logo',
-    },
-    {
-        icon: cidamLogo,
-        href: undefined,
-        alt: 'CIDAM logo',
-    },
-    {
-        icon: daLogo,
-        href: undefined,
-        alt: 'Department of Agriculture logo',
-    },
-    {
-        icon: goNegosyoLogo,
-        href: undefined,
-        alt: 'Go Negosyo logo',
-    },
+  logos.cidami,
+  logos.da,
+  logos.negosyo,
+  logos.cocoaPhil,
+  logos.dti,
 ];
