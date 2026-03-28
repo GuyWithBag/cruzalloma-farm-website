@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import desktopBackground from "@/assets/images/BenefitsSection/Background.png";
+import desktopBackground from "@/assets/images/BenefitsSection/Background.webp";
 
 export default function BenefitsSection() {
   return (

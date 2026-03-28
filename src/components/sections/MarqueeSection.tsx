@@ -9,7 +9,7 @@ export default function MarqueeSection() {
       data-name="MarqueeSection"
     >
       <img
-        src="https://texturelabs.org/wp-content/uploads/Texturelabs_CMYKPaperPatternS.jpg"
+        src="https://texturelabs.org/wp-content/uploads/Texturelabs_CMYKPaperPatternS.png"
         className="w-full h-full bg-repeat absolute opacity-20"
       />
       <div className="flex flex-col items-center gap-1  md:gap-2 py-4 md:py-6 z-10 relative">
@@ -28,7 +28,7 @@ export default function MarqueeSection() {
         </Marquee>
       </div>
       {/*<img
-        src="https://texturelabs.org/wp-content/uploads/Texturelabs_CMYKPaperPatternS.jpg"
+        src="https://texturelabs.org/wp-content/uploads/Texturelabs_CMYKPaperPatternS.webp"
         className="w-full h-full bg-repeat absolute "
       />*/}
     </section>

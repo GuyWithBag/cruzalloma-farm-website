@@ -1,6 +1,6 @@
 import React from "react";
-import Hero from "@/assets/images/cta-section/hero.jpg";
-import Wallpaper from "@/assets/images/cta-section/wallpaper.png";
+import Hero from "@/assets/images/cta-section/hero.webp";
+import Wallpaper from "@/assets/images/cta-section/wallpaper.webp";
 
 const CTASection: React.FC = () => {
   // SVG Pattern for the background to match the leaf design

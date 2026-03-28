@@ -16,7 +16,7 @@ import PlantIcon from "@/assets/svgs/HowItWorksSection/PlantIcon.svg";
 import HowItWorksStroke from "@/assets/svgs/HowItWorksSection/Rectangle 84 background.svg";
 
 // Background image
-import HowItWorksBackground from "@/assets/images/HowItWorksSection/Background-HowItWorks.png";
+import HowItWorksBackground from "@/assets/images/HowItWorksSection/Background-HowItWorks.webp";
 
 export default function HowItWorksSection() {
   return (
@@ -82,19 +82,33 @@ export default function HowItWorksSection() {
 
                 {/* Content */}
                 <div className="flex flex-col gap-1 md:gap-[1vw] flex-1 items-start text-left">
-                  <h3 className="font-display font-bold text-[12px] leading-none md:leading-[1.3] text-text-primary" style={{fontSize: 'clamp(12px, 1.8vw, 28px)'}}>
+                  <h3
+                    className="font-display font-bold text-[12px] leading-none md:leading-[1.3] text-text-primary"
+                    style={{ fontSize: "clamp(12px, 1.8vw, 28px)" }}
+                  >
                     Strategic Agricultural Planning
                   </h3>
-                  <p className="font-sans font-normal text-[10px] leading-[1.5] text-text-primary text-justify md:text-left" style={{fontSize: 'clamp(10px, 1.3vw, 20px)'}}>
-                    Our process begins with careful planning. We select the best organic seeds and use sustainable, eco-friendly land preparation techniques to ensure a healthy foundation for every crop.
+                  <p
+                    className="font-sans font-normal text-[10px] leading-[1.5] text-text-primary text-justify md:text-left"
+                    style={{ fontSize: "clamp(10px, 1.3vw, 20px)" }}
+                  >
+                    Our process begins with careful planning. We select the best
+                    organic seeds and use sustainable, eco-friendly land
+                    preparation techniques to ensure a healthy foundation for
+                    every crop.
                   </p>
                   <a
                     href="/our-farm"
                     className="flex items-center gap-0 font-sans font-semibold md:font-bold leading-[1.5] md:leading-normal text-text-primary underline transition-opacity duration-300 ease-in-out hover:opacity-70"
-                    style={{ fontSize: 'clamp(10px,1.3vw,18px)' }}
+                    style={{ fontSize: "clamp(10px,1.3vw,18px)" }}
                   >
-                    <span className="font-sans md:font-display">See How We Grow</span>
-                    <Icon icon="mdi:chevron-right" style={{ fontSize: 'clamp(6px,1.6vw,24px)' }} />
+                    <span className="font-sans md:font-display">
+                      See How We Grow
+                    </span>
+                    <Icon
+                      icon="mdi:chevron-right"
+                      style={{ fontSize: "clamp(6px,1.6vw,24px)" }}
+                    />
                   </a>
                 </div>
               </div>
@@ -126,19 +140,33 @@ export default function HowItWorksSection() {
 
                 {/* Content */}
                 <div className="flex flex-col gap-[3.5px] md:gap-[1vw] flex-1 items-end text-right">
-                  <h3 className="font-display font-bold text-[12px] leading-none md:leading-[1.3] text-text-primary w-full" style={{fontSize: 'clamp(12px, 1.8vw, 28px)'}}>
+                  <h3
+                    className="font-display font-bold text-[12px] leading-none md:leading-[1.3] text-text-primary w-full"
+                    style={{ fontSize: "clamp(12px, 1.8vw, 28px)" }}
+                  >
                     Innovative Cultivation & Training
                   </h3>
-                  <p className="font-sans font-normal text-[10px] leading-[1.5] text-text-primary text-justify md:text-right w-full" style={{fontSize: 'clamp(10px, 1.3vw, 20px)'}}>
-                    As our crops grow, our farm becomes a living classroom. We implement modern cultivation methods while providing hands-on training for our student interns and local farmer partners.
+                  <p
+                    className="font-sans font-normal text-[10px] leading-[1.5] text-text-primary text-justify md:text-right w-full"
+                    style={{ fontSize: "clamp(10px, 1.3vw, 20px)" }}
+                  >
+                    As our crops grow, our farm becomes a living classroom. We
+                    implement modern cultivation methods while providing
+                    hands-on training for our student interns and local farmer
+                    partners.
                   </p>
                   <a
                     href="/learn-with-us"
                     className="flex items-center gap-0 font-sans font-semibold md:font-bold leading-[1.5] md:leading-normal text-text-primary underline transition-opacity duration-300 ease-in-out hover:opacity-70"
-                    style={{ fontSize: 'clamp(10px,1.3vw,18px)' }}
+                    style={{ fontSize: "clamp(10px,1.3vw,18px)" }}
                   >
-                    <span className="font-sans md:font-display">Learn More</span>
-                    <Icon icon="mdi:chevron-right" style={{ fontSize: 'clamp(6px,1.6vw,24px)' }} />
+                    <span className="font-sans md:font-display">
+                      Learn More
+                    </span>
+                    <Icon
+                      icon="mdi:chevron-right"
+                      style={{ fontSize: "clamp(6px,1.6vw,24px)" }}
+                    />
                   </a>
                 </div>
               </div>
@@ -165,10 +193,16 @@ export default function HowItWorksSection() {
 
                 {/* Content */}
                 <div className="flex flex-col gap-[3.5px] md:gap-[1vw] flex-1 items-start text-left">
-                  <h3 className="font-display font-bold text-[12px] leading-none md:leading-[1.3] text-text-primary" style={{fontSize: 'clamp(12px, 1.8vw, 28px)'}}>
+                  <h3
+                    className="font-display font-bold text-[12px] leading-none md:leading-[1.3] text-text-primary"
+                    style={{ fontSize: "clamp(12px, 1.8vw, 28px)" }}
+                  >
                     Sustainable Harvesting Practicing
                   </h3>
-                  <p className="font-sans font-normal text-[10px] leading-[1.5] text-text-primary text-justify md:text-left w-full" style={{fontSize: 'clamp(10px, 1.3vw, 20px)'}}>
+                  <p
+                    className="font-sans font-normal text-[10px] leading-[1.5] text-text-primary text-justify md:text-left w-full"
+                    style={{ fontSize: "clamp(10px, 1.3vw, 20px)" }}
+                  >
                     We harvest our produce at the peak of freshness, using
                     techniques that respect the land and guarantee the highest
                     quality. This is where our commitment to excellence truly
@@ -177,10 +211,15 @@ export default function HowItWorksSection() {
                   <a
                     href="/shop"
                     className="flex items-center gap-0 font-sans font-semibold md:font-bold leading-[1.5] md:leading-normal text-text-primary underline transition-opacity duration-300 ease-in-out hover:opacity-70"
-                    style={{ fontSize: 'clamp(10px,1.3vw,18px)' }}
+                    style={{ fontSize: "clamp(10px,1.3vw,18px)" }}
                   >
-                    <span className="font-sans md:font-display">Shop The Harvest</span>
-                    <Icon icon="mdi:chevron-right" style={{ fontSize: 'clamp(6px,1.6vw,24px)' }} />
+                    <span className="font-sans md:font-display">
+                      Shop The Harvest
+                    </span>
+                    <Icon
+                      icon="mdi:chevron-right"
+                      style={{ fontSize: "clamp(6px,1.6vw,24px)" }}
+                    />
                   </a>
                 </div>
               </div>
@@ -212,10 +251,16 @@ export default function HowItWorksSection() {
 
                 {/* Content */}
                 <div className="flex flex-col gap-[3.5px] md:gap-[1vw] flex-1 items-end text-right">
-                  <h3 className="font-display font-bold text-[12px] leading-none md:leading-[1.3] text-text-primary w-full" style={{fontSize: 'clamp(12px, 1.8vw, 28px)'}}>
+                  <h3
+                    className="font-display font-bold text-[12px] leading-none md:leading-[1.3] text-text-primary w-full"
+                    style={{ fontSize: "clamp(12px, 1.8vw, 28px)" }}
+                  >
                     Community-Focused Distribution
                   </h3>
-                  <p className="font-sans font-normal text-[10px] leading-[1.5] text-text-primary text-justify md:text-right w-full" style={{fontSize: 'clamp(10px, 1.3vw, 20px)'}}>
+                  <p
+                    className="font-sans font-normal text-[10px] leading-[1.5] text-text-primary text-justify md:text-right w-full"
+                    style={{ fontSize: "clamp(10px, 1.3vw, 20px)" }}
+                  >
                     Our harvest directly serves and strengthens the community.
                     We supply local businesses, sell to customers through our
                     shop, and ensure our partners share in the harvest.
@@ -223,10 +268,15 @@ export default function HowItWorksSection() {
                   <a
                     href="/our-partners"
                     className="flex items-center gap-0 font-sans font-semibold md:font-bold leading-[1.5] md:leading-normal text-text-primary underline transition-opacity duration-300 ease-in-out hover:opacity-70"
-                    style={{ fontSize: 'clamp(10px,1.3vw,18px)' }}
+                    style={{ fontSize: "clamp(10px,1.3vw,18px)" }}
                   >
-                    <span className="font-sans md:font-display">Become a Partner</span>
-                    <Icon icon="mdi:chevron-right" style={{ fontSize: 'clamp(6px,1.6vw,24px)' }} />
+                    <span className="font-sans md:font-display">
+                      Become a Partner
+                    </span>
+                    <Icon
+                      icon="mdi:chevron-right"
+                      style={{ fontSize: "clamp(6px,1.6vw,24px)" }}
+                    />
                   </a>
                 </div>
               </div>

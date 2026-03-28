@@ -1,4 +1,4 @@
-import backgroundImage from "@/assets/images/footer-card-bg.png";
+import backgroundImage from "@/assets/images/footer-card-bg.webp";
 import { logos } from "@/lib/data/logos";
 import { contacts } from "@/lib/data/contacts";
 import { socials } from "@/lib/data/socials";
