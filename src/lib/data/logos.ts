@@ -1,11 +1,11 @@
 import type { Logo } from "../types/logo";
 
-import cruzallomaLogo from "@/assets/images/logos/cruzalloma-logo.png";
-import cocoaPhilLogo from "@/assets/Marquee-logos/cocoa-phil.png";
-import dtiLogo from "@/assets/Marquee-logos/dti.png";
-import cidamiLogo from "@/assets/Marquee-logos/cidami.png";
-import daLogo from "@/assets/Marquee-logos/da.png";
-import negosyoLogo from "@/assets/Marquee-logos/go-negosyo.png";
+import cruzallomaLogo from "../../../assets/images/logos/cruzalloma-logo.png";
+import cocoaPhilLogo from "../../../assets/images/logos/cocoa-phil.png";
+import dtiLogo from "../../../assets/images/logos/dti.png";
+import cidamiLogo from "../../../assets/images/logos/cidami.png";
+import daLogo from "../../../assets/images/logos/da.png";
+import negosyoLogo from "../../../assets/images/logos/go-negosyo.png";
 
 export const logos: { [key: string]: Logo } = {
   cruzalloma: {
