@@ -1,16 +1,37 @@
 import type { Logo } from "../types/logo";
 
-import cruzallomaLogo from '../../assets/images/logos/cruzalloma-logo.png'
-import cidamLogo from '../../assets/images/logos/cidam.png'
-import cocoaPhilLogo from '../../assets/images/logos/cocoa_phil.png'
-import daLogo from '../../assets/images/logos/da.png'
-import dtiLogo from '../../assets/images/logos/dti.svg'
-import goNegosyoLogo from '../../assets/images/logos/go_negosyo.png'
+import cocoaPhilLogo from "@/assets/Marquee-logos/CocoaPhil.png";
+import dtiLogo from "@/assets/Marquee-logos/DTI.png";
+import cidamiLogo from "@/assets/Marquee-logos/CIDAMI.png";
+import daLogo from "@/assets/Marquee-logos/DA.png";
+import negosyoLogo from "@/assets/Marquee-logos/Go Negosyo.png";
 
-export const cruzalloma: Logo = {
-    icon: cruzallomaLogo,
-    href: undefined,
-    alt: 'Cruzalloma Farm logo',
+export const logos: { [key: string]: Logo } = {
+    cocoaPhil: {
+        icon: cocoaPhilLogo,
+        href: undefined,
+        alt: 'CocoaPhil logo',
+    },
+    dti: {
+        icon: dtiLogo,
+        href: undefined,
+        alt: 'DTI logo',
+    },
+    cidami: {
+        icon: cidamiLogo,
+        href: undefined,
+        alt: 'CIDAMI logo',
+    },
+    da: {
+        icon: daLogo,
+        href: undefined,
+        alt: 'DA logo',
+    },
+    negosyo: {
+        icon: negosyoLogo,
+        href: undefined,
+        alt: 'Go Negosyo logo',
+    },
 };
 
 export const partnerLogos: Logo[] = [
